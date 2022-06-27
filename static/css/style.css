@@ -22,6 +22,18 @@
     font-size: 30px;
 }
 
+.wrong_ans {
+    background-color: red;
+    color: white;
+    padding: 10px;
+}
+
+.winner {
+    background-color: green;
+    color: white;
+    padding: 10px;
+}
+
 .user_guess {
     text-align: center;
 }

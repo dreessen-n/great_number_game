@@ -19,29 +19,43 @@
     <div class="lc-block col-lg-6 mx-auto mb-4">
         <div editable="rich">
             <!-- Add logic statements here to show if guess is right, wrong, winner or too many tries -->
-            {% if session['user_guess'] == 0 %}
-                <p class="lead">Let's Play</p>
-            {% elif session['user_guess'] == session['comp_guess'] %}
-                <p class="lead">You guessed it!<br>It took you {{ session['count'] }} tries</p>
-            {% elif session['user_guess'] > session['comp_guess'] %}
-                <p class="lead">Incorrect, your guess is too high, try again</p>
-            {% elif session['user_guess'] < session['comp_guess'] %}
-                <p class="lead">Incorrect, your guess is too low, try again</p>
+            {% if session['count'] == 5 %}
+                <div class="loser">
+                    <p class="lead">You lose!<br>
+                    The number was {{ session['comp_guess'] }}</p>
+                    <a class="btn btn-primary btn-lg px-4 gap-3 btn-warning" href="/end_session" role="button">Play Again</a>
+                </div>
+            {% else %}
+                {% if session['user_guess'] == 0 %}
+                    <p class="lead">Let's Play</p>
+                {% elif session['user_guess'] == session['comp_guess'] %}
+                    <div class="winner">
+                        <p class="lead">You guessed it!<br>
+                            The number was {{ session['comp_guess'] }}<br>
+                            It took you {{ session['count'] }} tries</p>
+                        <a class="btn btn-primary btn-lg px-4 gap-3 btn-warning" href="/end_session" role="button">Play Again</a>
+                    </div>
+                {% elif session['user_guess'] > session['comp_guess'] %}
+                    <p class="lead"><span class="wrong_ans">Incorrect, your guess is too high, try again</span></p>
+                {% elif session['user_guess'] < session['comp_guess'] %}
+                    <p class="lead"><span class="wrong_ans">Incorrect, your guess is too low, try again</span></p>
+                {% endif %}
             {% endif %}
         </div>
     </div>
     <!-- Section for user to submit their guess -->
-    <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <form action="/user_guess" method="post">
-            <label for="user_guess">Guess a number between 1 and 100:</label><br>
-            <input class="user_guess" type="text" name="user_guess" id="user_guess"><br>
-            <input class="btn btn-primary btn-lg px-4 gap-3 btn-success" type="submit" value="Submit your guess">
-        </form>
-    </div>
-    <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <a class="btn btn-primary btn-lg px-4 gap-3 btn-warning" href="/end_session" role="button">Reset</a>
-    </div>
-
+    {% if session['hide'] == False %}
+        <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <form action="/user_guess" method="post">
+                <label for="user_guess">Guess a number between 1 and 100:</label><br>
+                <input class="user_guess" type="text" name="user_guess" id="user_guess"><br>
+                <input class="btn btn-primary btn-lg px-4 gap-3 btn-success" type="submit" value="Submit your guess">
+            </form>
+        </div>
+        <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a class="btn btn-primary btn-lg px-4 gap-3 btn-warning" href="/end_session" role="button">Reset</a>
+        </div>
+    {% endif %}
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
