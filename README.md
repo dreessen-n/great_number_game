@@ -19,4 +19,4 @@ You are a winner:
 
 After 5 guesses you lose:
 
-![too_many_guesses](https://user-images.githubusercontent.com/99504059/176048781-b1bc8cae-6b44-4ca2-880d-69d55a8ec962.png)
+![too_many_tries](https://user-images.githubusercontent.com/99504059/176051121-19b5f1e8-8b73-4268-bbe0-4ee736479469.png)
