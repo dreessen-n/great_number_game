@@ -1,12 +1,22 @@
 # Coding Dojo Bootcamp 2022
 flask section - great_number_game assignment
 
-![start](https://user-images.githubusercontent.com/99504059/176046991-d1edc39b-bd2b-42ca-9459-5e5c29c82864.png)
+Start of game:
 
-![low_guess](https://user-images.githubusercontent.com/99504059/176047012-4cfdef6b-384c-42dc-9d71-5bcce91b904a.png)
+![start](https://user-images.githubusercontent.com/99504059/176048639-3d4aac2d-e2ce-4407-986e-4c6df03f6ba7.png)
 
-![high_guess](https://user-images.githubusercontent.com/99504059/176047024-c7a183e1-0b64-4df9-a529-dba1ed312d68.png)
+Too low of a guess:
 
-![winner](https://user-images.githubusercontent.com/99504059/176047040-701e6ac9-8c37-4324-9318-a188ddab1ada.png)
+![low_guess](https://user-images.githubusercontent.com/99504059/176048673-ed35a963-3704-4481-afc1-0190ce5ed879.png)
 
-![too_many_guesses](https://user-images.githubusercontent.com/99504059/176047056-2e63324d-d23e-410f-925c-90a1c9684565.png)
+Too high of a guess:
+
+![high_guess](https://user-images.githubusercontent.com/99504059/176048703-0f9f80df-032a-4f49-9e82-b0687fecb304.png)
+
+You are a winner:
+
+![winner](https://user-images.githubusercontent.com/99504059/176048735-38ff95f7-eec3-46a7-8cc7-c698123f5553.png)
+
+After 5 guesses you lose:
+
+![too_many_guesses](https://user-images.githubusercontent.com/99504059/176048781-b1bc8cae-6b44-4ca2-880d-69d55a8ec962.png)
