@@ -6,12 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
-    <title>Document</title>
+    <title>Great Number Game</title>
 </head>
 <body>
-    <h1>Hello Flask</h1>
+<!-- Used bootstrap for the styling -->
+<div class="container-fluid px-4 py-5 my-5 text-center">
+    <div class="lc-block">
+    <div editable="rich">
+        <h2 class="display-5 fw-bold">Great Number Game</h2>
+    </div>
+    </div>
+    <div class="lc-block col-lg-6 mx-auto mb-4">
+        <div editable="rich">
+            <!-- Add logic statements here to show if guess is right, wrong, winner or too many tries -->
+            {% if session['user_guess'] == session['comp_guess'] %}
+                <p class="lead">You guessed it!</p>
+            {% elif session['user_guess'] > session['comp_guess'] %}
+                <p class="lead">Incorrect, your guess is too high, try again</p>
+            {% elif session['user_guess'] < session['comp_guess'] %}
+                <p class="lead">Incorrect, your guess is too low, try again</p>
+        </div>
+    </div>
+    <!-- Section for user to submit their guess -->
+    <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <form action="/user_guess" method="post">
+            <label for="user_guess">Guess a number between 1 and 100:</label><br>
+            <input class="user_guess" type="text" name="user_guess" id="user_guess"><br>
+            <input class="btn btn-primary btn-lg px-4 gap-3 btn-success" type="submit" value="Submit your guess">
+        </form>
+    </div>
+
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
 </body>
 </html>
+
