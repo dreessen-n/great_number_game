@@ -21,7 +21,8 @@
             <!-- Add logic statements here to show if guess is right, wrong, winner or too many tries -->
             {% if session['count'] == 5 %}
                 <div class="loser">
-                    <p class="lead">You lose!<br>
+                    <p class="lead">Too many tries!<br>
+                    You lose!<br>
                     The number was {{ session['comp_guess'] }}</p>
                     <a class="btn btn-primary btn-lg px-4 gap-3 btn-warning" href="/end_session" role="button">Play Again</a>
                 </div>
