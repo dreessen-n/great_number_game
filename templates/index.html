@@ -19,12 +19,15 @@
     <div class="lc-block col-lg-6 mx-auto mb-4">
         <div editable="rich">
             <!-- Add logic statements here to show if guess is right, wrong, winner or too many tries -->
-            {% if session['user_guess'] == session['comp_guess'] %}
-                <p class="lead">You guessed it!</p>
+            {% if session['user_guess'] == 0 %}
+                <p class="lead">Let's Play</p>
+            {% elif session['user_guess'] == session['comp_guess'] %}
+                <p class="lead">You guessed it!<br>It took you {{ session['count'] }} tries</p>
             {% elif session['user_guess'] > session['comp_guess'] %}
                 <p class="lead">Incorrect, your guess is too high, try again</p>
             {% elif session['user_guess'] < session['comp_guess'] %}
                 <p class="lead">Incorrect, your guess is too low, try again</p>
+            {% endif %}
         </div>
     </div>
     <!-- Section for user to submit their guess -->
@@ -34,6 +37,9 @@
             <input class="user_guess" type="text" name="user_guess" id="user_guess"><br>
             <input class="btn btn-primary btn-lg px-4 gap-3 btn-success" type="submit" value="Submit your guess">
         </form>
+    </div>
+    <div class="lc-block d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a class="btn btn-primary btn-lg px-4 gap-3 btn-warning" href="/end_session" role="button">Reset</a>
     </div>
 
 </div>

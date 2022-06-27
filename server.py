@@ -4,21 +4,26 @@ from flask import Flask, render_template, render_template, request, redirect, se
 app = Flask(__name__)
 app.secret_key = "The Grand Wahzoo will now make a guess."
 
-count = 0
+# count = 0
 
 @app.route('/')
 def index():
     # Get computer's random guess
-    if 'comp_guess' and 'count' in session:
-        session['count'] += 1
-    else:
+    # if 'comp_guess' and 'count' in session:
+    #     session['count'] += 1
+    # else:
+    if 'comp_guess' and 'count' not in session:
         session['comp_guess'] = random.randint(1, 100)
+        print(f"computer guess is: {session['comp_guess']}")
+        session['user_guess'] = 0
+        session['count'] = 0
     return render_template('index.html')
 
 @app.route('/user_guess', methods=['POST'])
 def save_user_guess():
     session['user_guess'] = int(request.form['user_guess'])
     print(f"user guess is: {session['user_guess']}")
+    session['count'] += 1
     return redirect('/')
 
 @app.route('/end_session')
